@@ -26,7 +26,6 @@ document.addEventListener('DOMContentLoaded', function() {
         alert.classList.add('d-none');
         const row= table.insertRow();
         row.setAttribute('id', id++);
-
         const td1=document.createElement('td');
         row.innerHTML=`
         <td>${title.value}</td>
