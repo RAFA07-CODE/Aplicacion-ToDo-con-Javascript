@@ -10,6 +10,7 @@ document.addEventListener('DOMContentLoaded', function() {
         console.log('Description: ', description.value);
     }
 
+    
 
     function addTodo(){
         if(title.value==='' || description.value===''){
@@ -30,14 +31,16 @@ document.addEventListener('DOMContentLoaded', function() {
             <button class="btn btn-primary mb-1">
             <i class="fa fa-pencil"></i>
             </button>
-            <button class="btn btn-danger mb-1 ml-1">
-            <i class="fa fa-trash"></i>
-            </button>
         </td>
-
         `;
 
-        
+        const removeBtn = document.createElement('button');
+        removeBtn.classList.add('btn', 'btn-danger');
+        removeBtn.innerHTML = '<i class="fa fa-trash"></i>';
+        removeBtn.onclick = function() {
+            table.deleteRow(row.rowIndex);
+        };
+        row.children[3].appendChild(removeBtn);
     }
 
     //se declara la funcion 
