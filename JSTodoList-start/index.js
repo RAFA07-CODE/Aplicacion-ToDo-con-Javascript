@@ -10,8 +10,6 @@ document.addEventListener('DOMContentLoaded', function() {
         console.log('Description: ', description.value);
     }
 
-    
-
     function addTodo(){
         if(title.value==='' || description.value===''){
             alert.classList.remove('d-none');
