@@ -17,6 +17,7 @@ document.addEventListener('DOMContentLoaded', function() {
         console.log('Description: ', description.value);
     }
 
+
     function addTodo(){
         if(title.value==='' || description.value===''){
             alert.classList.remove('d-none');
@@ -26,6 +27,7 @@ document.addEventListener('DOMContentLoaded', function() {
         alert.classList.add('d-none');
         const row= table.insertRow();
         row.setAttribute('id', id++);
+
         const td1=document.createElement('td');
         row.innerHTML=`
         <td>${title.value}</td>
@@ -53,6 +55,4 @@ document.addEventListener('DOMContentLoaded', function() {
     //se declara la funcion 
     btn.onclick= addTodo;
 
-
 });
-
