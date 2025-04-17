@@ -10,9 +10,14 @@ export default class View {
       this.addTodoForm.onClick((title, description) => this.addTodo(title, description));
 
     }
-  
+   
     setModel(model) {
       this.model = model;
+    }
+
+    render() {
+      const todos = this.model.getTodos();
+      todos.forEach((todo) => this.createRow(todo));
     }
   
     addTodo(title, description) {
@@ -20,7 +25,7 @@ export default class View {
       this.createRow(todo);
     }
 
-    toggleCompleted(id) {x
+    toggleCompleted(id) {
       this.model.toggleCompleted(id);
     }
 

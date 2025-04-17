@@ -1,4 +1,4 @@
-import Alert from './alert.js';
+import Alegit rt from './alert.js';
 
 export default class AddTodo {
   constructor() {
@@ -12,7 +12,7 @@ export default class AddTodo {
   onClick(callback) {
     this.btn.onclick = () => {
       if (title.value === '' || description.value === '') {
-        this.alert.show('Title and description are required');
+        this.alert.show('Title and desc  ription are required');
       } else {
         this.alert.hide();
         callback(this.title.value, this.description.value);
