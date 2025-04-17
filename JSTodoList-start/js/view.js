@@ -1,18 +1,27 @@
 import addTodo from './components/add-todo.js';
+import Modal from './components/modal.js';
 
 export default class View {
     constructor() {
       this.model = null;
       this.table = document.getElementById('table');
       this.addTodoForm = new addTodo();
+      this.modal= new Modal();
       
 
       this.addTodoForm.onClick((title, description) => this.addTodo(title, description));
+      this.modal.onClick((id, values) => this.editTodo(id, values));
 
     }
   
     setModel(model) {
       this.model = model;
+    }
+
+    render(){
+      const todos= this.model.getTodos();
+      todos.forEach((todo)=> this.createRow(todo));
+
     }
   
     addTodo(title, description) {
@@ -20,9 +29,18 @@ export default class View {
       this.createRow(todo);
     }
 
-    toggleCompleted(id) {x
+    toggleCompleted(id) {
       this.model.toggleCompleted(id);
     }
+    
+    editTodo(id, values){
+      this.model.editTodo(id, values);
+      const row= document.getElementById(id);
+      row.children[0].innerText =values.title;
+      row.children[1].innerText =values.description;
+      row.children[2].children[0].checked =values.completed;
+    }
+
 
     removeTodo(id) {
       this.model.removeTodo(id);
