@@ -1,4 +1,4 @@
-import Alegit rt from './alert.js';
+import Alert from './alert.js';
 
 export default class AddTodo {
   constructor() {
