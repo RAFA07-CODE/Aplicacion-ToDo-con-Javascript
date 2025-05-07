@@ -1,36 +1,28 @@
 export default class Model {
-    constructor() {
-      this.view = null;
-      this.todos = JSON.parse(localStorage.getItem('todos'));
-      if(!this.todos || this.todos.length<1){
-        this.todos=[
-          {
-            id:0,
-            title: 'Learn JS',
-            description: 'Watch JS tutorials',
-            completed: false,
-          }
-        ]
-        this.currentId = 1;
-      }else{
-        this.currentId=this.todos[this.todos.length - 1].id + 1;
-      }
-      this.todos = JSON.parse(localStorage.getItem('todos'));
-      if (!this.todos || this.todos.length < 1) {
-        this.todos = [
-          {
-            id: 0,
-            title: 'Learn JavaScript',
-            description: 'Learn the basics of JavaScript',
-            completed: false
-
-          }
-        ];
-        this.currentId = 1;
-      }else {
-        this.currentId = this.todos[this.todos.length - 1].id + 1;
-      }
+  
+  constructor() {
+    this.view = null;
+  
+    const isTesting = process.env.NODE_ENV === 'test';
+    this.todos = JSON.parse(localStorage.getItem('todos'));
+  
+    if (!this.todos || this.todos.length < 1) {
+      this.todos = isTesting ? [] : [
+        {
+          id: 0,
+          title: 'Learn JavaScript',
+          description: 'Learn the basics of JavaScript',
+          completed: false
+        }
+      ];
+      this.currentId = this.todos.length;
+    } else {
+      this.currentId = this.todos[this.todos.length - 1].id + 1;
     }
+  
+    this.save();
+  }
+  
   
     setView(view) {
       this.view = view;

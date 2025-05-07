@@ -1,0 +1,14 @@
+body.dark-mode {
+  background-color: #121212;
+  color: #ffffff;
+}
+
+.dark-mode .task {
+  background-color: #1e1e1e;
+  color: #ffffff;
+}
+
+.dark-mode button {
+  background-color: #333;
+  color: white;
+}

@@ -11,7 +11,7 @@ export default class Modal{
         this.todo=null;
     }
 
-    setValues(todo){
+        setValues(todo){
         this.todo= todo;
         this.title.value= todo.title;
         this.description.value= todo.description;
